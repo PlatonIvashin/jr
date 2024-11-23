@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сервис регистрации субдоменов JRS</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            max-width: 400px;
+            background: URL("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpristor.ru%2Fwp-content%2Fuploads%2F2019%2F07%2F%25D0%259E%25D0%25B1%25D0%25BE%25D0%25B8-%25D0%25BB%25D0%25B5%25D1%2582%25D0%25BE-%25D0%25BA%25D1%2580%25D0%25B0%25D1%2581%25D0%25B8%25D0%25B2%25D1%258B%25D0%25B5-%25D0%25BA%25D0%25B0%25D1%2580%25D1%2582%25D0%25B8%25D0%25BD%25D0%25BA%25D0%25B8-%25D0%25BD%25D0%25B0-%25D1%2580%25D0%25B0%25D0%25B1%25D0%25BE%25D1%2587%25D0%25B8%25D0%25B9-%25D1%2581%25D1%2582%25D0%25BE%25D0%25BB-10.jpg&f=1&nofb=1&ipt=d1174863e183647849f90bb9dbcd213e7270cac494fe2dec048028d4f1dd4e84&ipo=images ")
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .result {
+            margin-top: 20px;
+        }
+        #success {
+            color: green;
+            border-radius: 8px;
+            padding: 8px;
+            background: rgba(0,0,0,0.4);
+        }
+        #error {
+        	color: red;
+            border-radius: 24px;
+            padding: 8px;
+            background: rgba(0,0,0,0.4);
+        }
+    </style>
+</head>
+<body>
+
+<h1 style="color: #ffffff">Регистрация субдоменов JRS</h1>
+<p style="color: #ffffff">Введите субдомен для проверки:</p>
+<input type="text" id="subdomain" placeholder="Введите субдомен (без lelia-news.su)">
+<button onclick="checkSubdomain()">Проверить</button>
+
+<div class="result" id="result"></div>
+
+<script>
+    // Массив занятых субдоменов
+    const occupiedSubdomains = [
+        "example1",
+        "example2",
+        "test",
+        "mydomain",
+        "sample"
+    ];
+
+    function checkSubdomain() {
+        // Получаем введенный пользователем субдомен
+        const input = document.getElementById('subdomain').value.trim();
+        const fullSubdomain = input + '.lelia-news.su';
+        const resultDiv = document.getElementById('result');
+
+        // Проверяем, является ли введенный субдомен занятым
+        if (occupiedSubdomains.includes(input)) {
+            resultDiv.innerHTML = `<p id="error">Субдомен <b>${fullSubdomain}</b> занят.</p>`;
+        } else {
+            resultDiv.innerHTML = `<p id="success">Субдомен <b>${fullSubdomain}</b> свободен.<br>Для регистрации, отправьте запрос на <b>iplaton12@lelia-news.su</b>.</p>`;
+        }
+    }
+</script>
+
+</body>
+</html>
