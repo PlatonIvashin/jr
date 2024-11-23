@@ -52,6 +52,10 @@
 <body>
 
 <h1 style="color: #ffffff">Регистрация субдоменов JRS</h1>
+<ul>
+    <li><a href="http://jj.lelia-news.su/become-registrar.html">Стать регистратором</a></li>
+    <li><a href="http://jj.lelia-news.su/rules.html">Условия использования</a></li>
+</ul>
 <p style="color: #ffffff">Введите субдомен для проверки:</p>
 <input type="text" id="subdomain" placeholder="Введите субдомен (без lelia-news.su)">
 <button onclick="checkSubdomain()">Проверить</button>
@@ -61,11 +65,10 @@
 <script>
     // Массив занятых субдоменов
     const occupiedSubdomains = [
-        "example1",
-        "example2",
-        "test",
-        "mydomain",
-        "sample"
+        "8086-kernel",
+        "jj",
+        "by",
+        "fg"
     ];
 
     function checkSubdomain() {
@@ -76,9 +79,9 @@
 
         // Проверяем, является ли введенный субдомен занятым
         if (occupiedSubdomains.includes(input)) {
-            resultDiv.innerHTML = `<p id="error">Субдомен <b>${fullSubdomain}</b> занят.</p>`;
+            resultDiv.innerHTML = `<p id="error">Субдомен <b>${fullSubdomain}</b> занят. Если вы желаете перерегистрировать субдомен на свое имя, напишите на почту <b>iplaton12@lelia-news.su</b></p>`;
         } else {
-            resultDiv.innerHTML = `<p id="success">Субдомен <b>${fullSubdomain}</b> свободен.<br>Для регистрации, отправьте запрос на <b>iplaton12@lelia-news.su</b>.</p>`;
+            resultDiv.innerHTML = `<p id="success">Субдомен <b>${fullSubdomain}</b> свободен.<br>Для регистрации, прочитайте <a href="http://jj.lelia-news.su/rules.html">условия использования субдомена</a> и отправьте запрос на <b>iplaton12@lelia-news.su</b>.</p>`;
         }
     }
 </script>
