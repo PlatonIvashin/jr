@@ -53,8 +53,8 @@
 
 <h1 style="color: #ffffff">Регистрация субдоменов JRS</h1>
 <ul>
-    <li><a href="http://jj.lelia-news.su/become-registrar.html" style="color: white">Стать регистратором</a></li>
-    <li><a href="http://jj.lelia-news.su/rules.html" style="color: white">Условия использования</a></li>
+    <li><p onclick="notfound()" style="color: white">Стать регистратором</p></li>
+    <li><p onclick="notfound()" style="color: white">Условия использования</p></li>
 </ul>
 <p style="color: #ffffff">Введите субдомен для проверки:</p>
 <input type="text" id="subdomain" placeholder="Введите субдомен (без lelia-news.su)">
@@ -83,6 +83,10 @@
         } else {
             resultDiv.innerHTML = `<p id="success">Субдомен <b>${fullSubdomain}</b> свободен.<br>Для регистрации, прочитайте <a href="http://jj.lelia-news.su/rules.html" style="color: green">условия использования субдомена</a> и отправьте запрос на <b>iplaton12@lelia-news.su</b>.</p>`;
         }
+    }
+
+    function notfound() {
+        alert("При переходе возникла ошибка")
     }
 </script>
 
